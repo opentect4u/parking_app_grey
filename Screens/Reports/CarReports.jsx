@@ -194,11 +194,11 @@ const CarReports = ({ navigation }) => {
             const quantityLen = quantity.toString().length
             const vehicleTypeLen = vehicleType.toString().length
             const TotalAdvanceLen = TotalAdvance.toString().length
-            payload += `${(vehicleType.toString().padEnd(10)).padEnd(15)}${quantity.toString().padStart(4).padEnd(8)}${TotalAdvance.toString().padStart(7).padEnd(14)}${totalAmount.toString().padStart(8)}\n`;
+            payload += `${(vehicleType.toString().slice('', 6).padEnd(10)).padEnd(10)}${quantity.toString().padStart(5).padEnd(10)}${TotalAdvance.toString().padStart(7).padEnd(14)}${totalAmount.toString().padStart(8)}\n`;
             // payload += `${vehicleType.toString().padEnd(18 - vehicleTypeLen)}${quantity.toString().padEnd(15 - quantityLen)}${TotalAdvance.toString().padEnd(16 - TotalAdvanceLen)}${totalAmount}\n`;
         });
         payload += "--------------------------------------------------------------------\n"
-        payload += `${(("TOTAL").toString().padEnd(10)).padEnd(15)}${totalQTY.toString().padStart(4).padEnd(8)} ${totalAdvance.toString().padStart(6).padEnd(12)} ${totalPrice.toString().padStart(7)} \n  `
+        payload += `${(("TOTAL").toString().padEnd(10)).padEnd(12)}${totalQTY.toString().padStart(5).padEnd(10)} ${totalAdvance.toString().padStart(6).padEnd(12)} ${totalPrice.toString().padStart(7)} \n  `
 
         let footerPayload = ""
         if (receiptSettings.footer1_flag == "1") {

@@ -148,7 +148,12 @@ const OperatorReport = ({ navigation }) => {
 
         const extractedData = unbilledData && unbilledData.map(({ opratorName, quantity, TotalAdvance, totalAmount }) => {
             // opratorName, quantity, TotalAdvance, totalAmount
-            return `${opratorName?.toString().padEnd(15)}${quantity.toString().padEnd(10)}${TotalAdvance.toString().padEnd(15)}${totalAmount.toString().padStart(5)}\n`
+            return `${opratorName?.toString().toUpperCase().slice('', 6).padEnd(6).padEnd(12)}${quantity.toString().padStart(6).padEnd(12)}${TotalAdvance.toString().padStart(6).padEnd(12)}${totalAmount.toString().padStart(12)}\n`
+
+            //`${"TOTAL".toUpperCase().padEnd(12)}${totalQTY.toString().padStart(6).padEnd(12)} ${totalAdvance.toString().padStart(6).padEnd(12)} ${totalPrice.toString().padStart(12)} \n  `
+
+            
+            //return `${(receiptNo?.toString().toUpperCase().padEnd(8)).padEnd(10)}${paddedResult.padStart(5).padEnd(10)}${formatTime.toLocaleDateString("en-GB").padStart(8).padEnd(16)}${formatTime.toLocaleTimeString(undefined, options).padStart(8)}\n`;
         }).join('');
         // console.log("object ", extractedData)
         setpl(true)
@@ -197,7 +202,7 @@ const OperatorReport = ({ navigation }) => {
 
         payload += extractedData
         payload += "--------------------------------------------------------------------\n"
-        payload += `${"TOTAL".padEnd(14)}    ${totalQTY.toString().padEnd(9)} ${totalAdvance.toString().padEnd(12)} ${totalPrice.toString().padStart(7)} \n  `
+        payload += `${"TOTAL".toUpperCase().padEnd(12)}${totalQTY.toString().padStart(6).padEnd(12)} ${totalAdvance.toString().padStart(6).padEnd(12)} ${totalPrice.toString().padStart(12)} \n  `
 
         let footerPayload = ""
         if (receiptSettings.footer1_flag == "1") {
